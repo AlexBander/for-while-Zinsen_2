@@ -4,13 +4,13 @@
 #                                                                      #
 #                      for- und while-Schleifen                        #
 #                                am                                    #
-#                  Beispiel einer Zins Berechnung                     #
+#                  Beispiel einer Zins Berechnung                      #
 #                                                                      #
 #                           C# - Projekt                               #
 #                                                                      #
 #                                                                      #
 #                                                                      #
-#                     Alle rechte vorbehalten!                         #
+#                     Alle Rechte vorbehalten!                         #
 #                GNU General Public License GNU GPLv3                  #
 #           Copyright & Copyleft 2015 by XITS - AlexBander             #
 ######################################################################*/
@@ -77,20 +77,25 @@ namespace zinsen
 
     static void Main()
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.WriteLine("### Zins Programm (Einfach) ### \n Wähle Programm: \n 1. - Watzlaw \n 2. - Alex2: for Header Bedingungen \n 3. - Alex3: for Zähler(i) only \n 4. Alex4: while Kopf-geführt \n 5. Alex5: while Fuß-geführt \n 6. ### Ende ###");
+            bool run;
+            do
+            {
+                run = true;
+                Console.OutputEncoding = Encoding.UTF8;
+                Console.WriteLine("### Zins Programm (Einfach) ### \n Wähle Programm: \n 1. - Watzlaw \n 2. - Alex2: for Header Bedingungen \n 3. - Alex3: for Zähler(i) only \n 4. Alex4: while Kopf-geführt \n 5. Alex5: while Fuß-geführt \n 6. ### Ende ###");
 
-            int c = Convert.ToInt16(Console.ReadLine());
-            if (c == 1) { watzlaw(); }
-            else if (c == 2) { Alex2(); }
-            else if (c == 3) { Alex3(); }
-            else if (c == 4) { Alex4(); }
-            else if (c == 5) { Alex5(); }
-            else { return; }
-
+                int c = Convert.ToInt16(Console.ReadLine());
+                if (c == 1) { Watzlaw(); }
+                else if (c == 2) { Alex2(); }
+                else if (c == 3) { Alex3(); }
+                else if (c == 4) { Alex4(); }
+                else if (c == 5) { Alex5(); }
+                else { run = false; return; }
+            }
+            while (run == true);
         }
 
-    static void watzlaw()
+    static void Watzlaw()
         {
 
             double var1;                        // Betrag
@@ -138,8 +143,7 @@ namespace zinsen
             }
 
             Console.ReadKey();
-            Console.Clear();
-            Main();
+            Console.Clear();    
         }
         // For-Schleife Alle Bedingungen im Header 
         static void Alex2()
@@ -153,7 +157,6 @@ namespace zinsen
             double k;
             int i;
 
-//                                           for ( i = 0; i <= j; i++)
             for (k=startkapital, i = startjahr; i <= endjahr; i++)
                 {
                     k = k + (k * (prozentsatz / 100));
@@ -162,7 +165,7 @@ namespace zinsen
             }
             Console.ReadKey();
             Console.Clear();
-            Main();
+            
         }
         // For-Schleife Count i only 
         static void Alex3()
@@ -181,18 +184,14 @@ namespace zinsen
             int i;
 
             for (i = 0; i <= j; i++)
-//                                                                     for (fkapital = 24, i = 0; i <= j; i++)
             {
                 int jahr = startjahr + i;
                 k = startkapital + (startkapital * (prozentsatz / 100));
                 startkapital = k;
-//                                                                     fkapital = fkapital + (fkapital * (Prozentsatz / 100));
                 Console.WriteLine("im Jahr: " + jahr + " ein Wert von {0:c} \n", k);
-//                                                                     Console.WriteLine("im Jahr: " + Jahr + " ein Wert von {0:c} \n", fkapital);
             }
             Console.ReadKey();
             Console.Clear();
-            Main();
         }
         // while-Schleife Kopfgeführt bzw. einfache while Schleife
         static void Alex4()
