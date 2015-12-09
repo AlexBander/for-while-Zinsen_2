@@ -141,8 +141,8 @@ namespace zinsen
             Console.Clear();
             Main();
         }
-
-    static void Alex2()
+        // For-Schleife Alle Bedingungen im Header 
+        static void Alex2()
         {
             Console.OutputEncoding = Encoding.UTF8;
             int startjahr = Ask.i("Wann ist das Anfangsjahr? ");
@@ -164,7 +164,8 @@ namespace zinsen
             Console.Clear();
             Main();
         }
-    static void Alex3()
+        // For-Schleife Count i only 
+        static void Alex3()
         {
 
             Console.WriteLine("Startjahr: ");
@@ -193,7 +194,8 @@ namespace zinsen
             Console.Clear();
             Main();
         }
-    static void Alex4()
+        // while-Schleife Kopfgeführt bzw. einfache while Schleife
+        static void Alex4()
         {
 
             Console.WriteLine("Startjahr: ");
@@ -208,10 +210,11 @@ namespace zinsen
             double k;
             int i=0;
 
-            while (i < j)
+            while (i <= j)
             //                                                                     for (fkapital = 24, i = 0; i <= j; i++)
             {
                 int jahr = startjahr + i;
+                i++;
                 k = startkapital + (startkapital * (prozentsatz / 100));
                 startkapital = k;
                 //                                                                     fkapital = fkapital + (fkapital * (Prozentsatz / 100));
@@ -222,7 +225,8 @@ namespace zinsen
             Console.Clear();
             Main();
         }
-    static void Alex5()
+        // while-Schleife Fußgeführt bzw. do-while Schleife
+        static void Alex5()
         {
             int startjahr = Ask.i("Wann ist das Anfangsjahr? ");
             int endjahr = Ask.i("Welches ist das Endjahr? ");
@@ -239,9 +243,10 @@ namespace zinsen
                 k = startkapital + (startkapital * (prozentsatz / 100));
                 startkapital = k;
                 Console.WriteLine("im Jahr: " + jahr + " ein Wert von {0:c} \n", k);
+                x++;
                 Console.ReadKey();
             }
-            while (x < j);
+            while (x <= j);
             Console.ReadKey();
             Console.Clear();
             Main();
